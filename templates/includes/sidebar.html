@@ -1,0 +1,119 @@
+{% load static %}
+{% load active_link_tags %}
+
+<style>
+    .home {
+        background-color: white !important;
+    }
+</style>
+<!-- Start::app-sidebar -->
+<aside class="app-sidebar sticky" id="sidebar">
+    <!-- Start::main-sidebar-header -->
+    <div class="main-sidebar-header">
+        <a href="index.html" class="header-logo">
+            <img style="background-size: cover;"  src="{% static 'assets/logo/logo_senke.jpg' %}" alt="logo" class="desktop-logo"> 
+            <img src="{% static 'assets/images/brand-logos/toggle-logo.png' %}" alt="logo" class="toggle-logo">
+            <img src="{% static 'assets/images/brand-logos/desktop-dark.png' %}" alt="logo" class="desktop-dark">
+            <img src="{% static 'assets/images/brand-logos/toggle-dark.png' %}" alt="logo" class="toggle-dark">
+            <img src="{% static 'assets/images/brand-logos/desktop-white.png' %}" alt="logo" class="desktop-white">
+            <img src="{% static 'assets/images/brand-logos/toggle-white.png' %}" alt="logo" class="toggle-white">
+        </a>
+    </div>
+    <!-- End::main-sidebar-header -->
+
+    <!-- Start::main-sidebar -->
+    <div class="main-sidebar" id="sidebar-scroll">
+
+        <!-- Start::nav -->
+        <nav class="main-menu-container nav nav-pills flex-column sub-open">
+            <div class="slide-left" id="slide-left">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
+                </svg>
+            </div>
+            <ul class="main-menu">
+                <li class="slide">
+                    <a href="{% url 'dashboard' %}" class="side-menu__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm7 7v-5h4v5h-4zm2-15.586 6 6V15l.001 5H16v-5c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v5H6v-9.586l6-6z" />
+                        </svg>
+                        <span>Tableau de bord</span>
+                    </a>
+                </li>
+
+                <li class="slide has-sub">
+                    <a href="javascript:void(0);" class="side-menu__item">
+                        <svg xmlns="http://www.w3.org/2000/svg"  class="side-menu__icon" width="24" height="24" viewBox="0 0 24 24"><path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9 9H5V5h4v4zm11-6h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 6h-4V5h4v4zm-9 4H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zm-1 6H5v-4h4v4zm8-6c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z"/></svg>
+                        <span class="side-menu__label">Parametrage</span>
+                        <i class="fe fe-chevron-right side-menu__angle"></i>
+                    </a>
+                    <ul class="slide-menu child1">                    
+                        
+                        <li class="slide">
+                            <a href="{% url 'users_index' %}" class="side-menu__item">Utilisateurs</a>
+                        </li>                            
+                    </ul>
+                </li>
+                           
+
+                <li class="slide">
+                    <a href="{% url 'clients_index' %}" class="side-menu__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm7 7v-5h4v5h-4zm2-15.586 6 6V15l.001 5H16v-5c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v5H6v-9.586l6-6z" />
+                        </svg>
+                        <span style="width: 150px !important;">Clients</span>
+                    </a>
+                </li>
+
+                <li class="slide">
+                    <a href="{% url 'entreprises_index' %}" class="side-menu__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm7 7v-5h4v5h-4zm2-15.586 6 6V15l.001 5H16v-5c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v5H6v-9.586l6-6z" />
+                        </svg>
+                        <span style="width: 150px !important;">Enteprises</span>
+                    </a>
+                </li>
+                <li class="slide">
+                    <a href="{% url 'produits_index' %}" class="side-menu__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm7 7v-5h4v5h-4zm2-15.586 6 6V15l.001 5H16v-5c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v5H6v-9.586l6-6z" />
+                        </svg>
+                        <span style="width: 150px !important;">Produits</span>
+                    </a>
+                </li>
+                <li class="slide">
+                    <a href="{% url 'factures_index' %}" class="side-menu__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm7 7v-5h4v5h-4zm2-15.586 6 6V15l.001 5H16v-5c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v5H6v-9.586l6-6z" />
+                        </svg>
+                        <span style="width: 150px !important;">Facture</span>
+                    </a>
+                </li>
+
+            </ul>
+            <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24"
+                    height="24" viewBox="0 0 24 24">
+                    <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
+                </svg></div>
+        </nav>
+        <!-- End::nav -->
+
+    </div>
+    <!-- End::main-sidebar -->
+
+</aside>
+
+<div class="main-content app-content">
+
+    <!-- container -->
+    <div class="main-container container-fluid">

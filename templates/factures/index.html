@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block Content %}
+
+<div class="row mt-3">
+    <div class="card">
+        <div class="card-header">
+            <div class="col-md-11">
+                <h3>Liste des factures</h3>
+            </div>
+            <!-- {% if perms.clients.add_client   %} -->
+                <div class="col-md-1">
+                    <div class="d-grid">
+                        <a href="{% url 'factures_create' %}" class="btn btn-success">+Nouveau</a>
+                    </div>
+                </div>
+            <!-- {% endif %} -->
+        </div>
+    <div class="card-body">
+      <table class="table table-bordered" id="myTable">
+        <thead>
+            <tr>
+                <th style="width: 5%;">N°</th>
+                <th>Nom facture</th>
+                <th>Clients</th>
+                <th>Date facture</th>
+                <th>Mode de paiement</th>
+                <th>Note</th>
+                <th style="width: 15%;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in factures %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{c.numero_facture}}</td>
+                    <td>{{c.clients}}</td>
+                    <td>{{c.date_facture}}</td>
+                    <td>{{c.mode_paiement}}</td>
+                    <td>{{c.note}}</td>
+
+                    <td class="text-center">
+                        <button type="button" class="delete btn btn-danger me-2 btn-sm" data-href="{% url 'factures_delete' c.slug %}" data-bs-toggle="modal" data-bs-target="#delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <a href="{% url 'factures_create' %}?slug={{c.slug}}" class="btn btn-success btn-sm me-2"><i class="fas fa-edit"></i></a>
+                        <a href="{% url 'rapport' c.pk %}" class="btn btn-dark btn-sm"><i class="fas fa-print"></i></a>
+                    </td> 
+                </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+    </div>
+
+{% endblock Content %}

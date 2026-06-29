@@ -1,0 +1,33 @@
+# Core Django
+Django==5.2.1
+python-dotenv==1.1.0
+django-autoslug==1.9.9
+django-active-link==0.2.2
+django-htmx==1.23.0
+
+# Forms and UI
+django-crispy-forms==2.4
+crispy-bootstrap5==2025.4
+django-widget-tweaks==1.5.0
+django-ckeditor-5==0.2.18
+
+# API and import/export
+djangorestframework==3.16.0
+django-import-export==4.3.10
+tablib==3.8.0
+openpyxl==3.1.5
+
+# Database
+mysqlclient==2.2.7
+mysql-connector-python==9.4.0
+
+# PDF, images and HTTP helpers
+plutoprint==0.20.0
+reportlab==4.4.4
+pillow==11.2.1
+requests==2.32.4
+
+# Optional project helpers currently present in the environment
+django-cors-headers==4.7.0
+django-filter==25.1
+nimbasms==1.0.2

@@ -1,0 +1,200 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-nav-layout="vertical" data-theme-mode="light" data-header-styles="light" data-menu-styles="light" data-toggled="close">
+<head>
+
+    <!-- Meta Data -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Gestion_op </title>
+    <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
+    <meta name="Author" content="Spruko Technologies Private Limited">
+	<meta name="keywords" content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'assets/images/brand-logos/favicon.ico' %}" type="image/x-icon">
+    
+    <!-- Choices JS -->
+    <script src="{% static 'assets/libs/choices.js/public/assets/scripts/choices.min.js' %}"></script>
+
+    <!-- Main Theme Js -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/js/htmx.min.js' %}"></script>
+    
+    <!-- Bootstrap Css -->
+    <link id="style" href="{% static 'assets/libs/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" >
+
+    <!-- Style Css -->
+    <link href="{% static 'assets/css/styles.min.css' %}" rel="stylesheet" >
+
+    <!-- Icons Css -->
+    <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" >
+
+    <!-- Node Waves Css -->
+    <link href="{% static 'assets/libs/node-waves/waves.min.css' %}" rel="stylesheet" > 
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+    <!-- Simplebar Css -->
+    <link href="{% static 'assets/libs/simplebar/simplebar.min.css' %}" rel="stylesheet" >
+    
+    <!-- Color Picker Css -->
+    <link rel="stylesheet" href="{% static 'assets/libs/flatpickr/flatpickr.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/libs/@simonwep/pickr/themes/nano.min.css' %}">
+
+    <!-- Choices Css -->
+    <link rel="stylesheet" href="{% static 'assets/libs/choices.js/public/assets/styles/choices.min.css' %}">
+
+
+<link rel="stylesheet" href="{% static 'assets/libs/jsvectormap/css/jsvectormap.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'assets/libs/swiper/swiper-bundle.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/notification/notif.css' %}">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    .btn_menu_active{
+        background-color: #1e90ff;
+        color:white !important;
+    }
+     .card {
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+    input[readonly] {
+            background-color: #f0f0f0; /* couleur de fond gris clair */
+            color: #555; /* couleur du texte gris foncé */
+            border: 1px solid #ccc; /* bordure grise */
+        }
+     input,select {
+            border: 1px solid #3A5992 !important;
+            font-weight:normal;
+            height:38px;
+        }
+    thead tr th{
+        background:#17AFAC !important;
+        color:black !important;
+    } 
+    tr > td{
+        height:3px !important;
+    }
+    .app-header{
+        height:52px !important;
+        box-shadow:0px 2px 2px rgba(0, 0, 0, 0.2);
+    }
+    input ,select {
+        height:38px;
+    }
+ 
+</style>
+
+</head>
+
+<body hx-headers='{"x-csrftoken": "{{ csrf_token }}"}'>
+
+    <!-- Loader -->
+    <div id="loader" >
+        <img src="{% static 'assets/images/media/loader.svg' %}" alt="">
+    </div>
+    <!-- Loader -->
+
+    <div class="page">
+         <!-- app-header -->
+         <header class="app-header">
+            <!-- Start::main-header-container -->
+            <div class="main-header-container container-fluid">
+                <!-- Start::header-content-left -->
+                <div class="header-content-left align-items-center">
+
+                    <!-- Start::header-element -->
+                    <div class="header-element">
+                        <div class="horizontal-logo">
+                            <a href="index.html" class="header-logo">
+                                <img src="{% static 'assets/images/brand-logos/desktop-logo.png' %}" alt="logo" class="desktop-logo">
+                                <img src="{% static 'assets/images/brand-logos/toggle-logo.png' %}" alt="logo" class="toggle-logo">
+                                <img src="{% static 'assets/images/brand-logos/desktop-dark.png' %}" alt="logo" class="desktop-dark">
+                                <img src="{% static 'assets/images/brand-logos/toggle-dark.png' %}" alt="logo" class="toggle-dark">
+                                <img src="{% static 'assets/images/brand-logos/desktop-white.png' %}" alt="logo" class="desktop-white">
+                                <img src="{% static 'assets/images/brand-logos/toggle-white.png' %}" alt="logo" class="toggle-white">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End::header-element -->
+
+                    <!-- Start::header-element -->
+                    <div class="header-element">
+                        <!-- Start::header-link -->
+                        <a aria-label="Hide Sidebar" class="sidemenu-toggle header-link animated-arrow hor-toggle horizontal-navtoggle" data-bs-toggle="sidebar" href="javascript:void(0);"><span></span></a>
+                        <!-- End::header-link -->
+                    </div>
+                    <!-- End::header-element -->
+
+                    <!-- Start::header-element -->
+                    <div class="col-md-12 "> 
+                        {% if template_include %}
+                            {% include template_include %}
+                        {% endif %}
+                    </div>  
+                    <!-- End::header-element -->
+
+                </div>
+                <!-- End::header-content-left -->
+
+                <!-- Start::header-content-right -->
+                <div class="header-content-right">
+               
+                    <!-- Start::header-element -->
+                    <div class="header-element">
+                        <!-- Start::header-link|dropdown-toggle -->
+                        <a href="#" class="header-link dropdown-toggle" id="mainHeaderProfile" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                            <div class="d-flex align-items-center">
+                                <div class="me-sm-2 me-0">
+                                    {% if request.user.photo %}
+                                        <img src="{% static '{{request.user.photo.url}}' %}" alt="img" width="32" height="32" class="rounded-circle">
+                                    {% endif %}
+                                </div>
+                                <div class="d-xl-block d-none">
+                                    <p class="fw-semibold mb-0 lh-1">{{request.user.username}}</p>
+                                </div>
+                            </div>
+                        </a>
+                        <!-- End::header-link|dropdown-toggle -->
+                        <ul class="main-header-dropdown dropdown-menu pt-0 overflow-hidden header-profile-dropdown dropdown-menu-end" aria-labelledby="mainHeaderProfile">
+                            <li>
+                                <a class="dropdown-item d-flex" href="{% url 'logout' %}"><i class="far fa-arrow-alt-circle-left fs-16 me-2 op-7"></i>Deconnexion</a>
+                            </li>
+                        </ul>
+                    </div>  
+                    <!-- End::header-element -->
+                </div>
+                <!-- End::header-content-right -->
+
+            </div>
+            <!-- End::main-header-container -->
+
+        </header>
+        <!-- /app-header -->
+
+<div class="modal fade" tabindex="-1" id="delete" role="dialog">
+    <div class="modal-dialog">
+        <form id="form_delete" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Voulez-vous vraiment supprimer cette ligne ?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {% csrf_token %}
+                    <input type="text" id="ventes_id" hidden name="ventes_id">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non</button>
+                    <button id="btn_submit_delete" type="submit" class="btn btn-primary">Oui</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

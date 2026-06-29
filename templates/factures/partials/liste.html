@@ -1,0 +1,35 @@
+{% load static %}
+{% load humanize %}
+
+  <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width: 5%;">N°</th>
+                <th>Produits</th>
+                <th>Prix unitaire</th>
+                <th>Quantité</th>
+                <th>Montant</th>
+                <th style="width: 10%;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in details %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{d.produits}}</td>
+                    <td>{{d.quantite}}</td>
+                    <td>{{d.prix_unitaire|intcomma}}</td>
+                    <td>{{d.montant|intcomma}}</td>
+                    <td class="text-center">
+                    <button type="button" class="btn btn-danger btn-sm" hx-post="{% url 'delete_lignefacture' d.pk %}" hx-target="#factures" hx-swap="innerHTML" >
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            {% endfor %}
+            <tr  >
+                <td style="background-color:gainsboro;" colspan="4">Montant total</td>
+                <td style="background-color:gainsboro;">{{montant_total|intcomma}}</td>
+            </tr>
+        </tbody>
+      </table>

@@ -1,0 +1,101 @@
+{% load static %}
+
+</div>
+<!-- /Container -->
+</div>
+<!-- /main-content -->
+<!-- Footer -->
+<footer class="footer mt-auto py-3 bg-white text-center">
+    <div class="container">
+        <span> Copyright © <span id="year"></span> <a href="javascript:void(0);" class="text-primary">Bamba</a>.
+            Designed with <span class="bi bi-heart-fill text-danger"></span> by <a href="javascript:void(0);">
+                <span class="fw-semibold text-decoration-underline">Bamba tech</span>
+            </a> All rights reserved
+        </span>
+    </div>
+</footer>
+<!-- Footer End -->
+
+</div>
+
+    <!-- Scroll To Top -->
+    <div class="scrollToTop">
+        <span class="arrow"><i class="ri-arrow-up-s-fill fs-20"></i></span>
+    </div>
+    <div id="responsive-overlay"></div>
+    <!-- Scroll To Top -->
+
+    <!-- Popper JS -->
+    <script src="{% static 'assets/js/jquery.js' %}"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="{% static 'assets/notification/notif.var.js' %}"></script>
+    <script src="{% static 'assets/libs/@popperjs/core/umd/popper.min.js' %}"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Defaultmenu JS -->
+    <script src="{% static 'assets/js/defaultmenu.min.js' %}"></script>
+    <!-- Datatable JS -->
+
+    <!-- Node Waves JS-->
+    <script src="{% static 'assets/libs/node-waves/waves.min.js' %}"></script>
+
+    <!-- Sticky JS -->
+    <script src="{% static 'assets/js/sticky.js' %}"></script>
+
+    <!-- Simplebar JS -->
+    <script src="{% static 'assets/libs/simplebar/simplebar.min.js' %}"></script>
+    <script src="{% static 'assets/js/simplebar.js' %}"></script>
+
+    <!-- Color Picker JS -->
+    <script src="{% static 'assets/libs/@simonwep/pickr/pickr.es5.min.js' %}"></script>
+
+      <!-- JSVector Maps JS -->
+    <script src="{% static 'assets/libs/jsvectormap/js/jsvectormap.min.js' %}"></script>
+
+    <!-- JSVector Maps MapsJS -->
+    <script src="{% static 'assets/libs/jsvectormap/maps/world-merc.js' %}"></script>
+
+    <!-- Apex Charts JS -->
+    <script src="{% static 'assets/libs/apexcharts/apexcharts.min.js' %}"></script>
+
+    <!-- Chartjs Chart JS -->
+    <script src="{% static 'assets/libs/chart.js/chart.min.js' %}"></script>
+
+    <!-- Index Js -->
+    <script src="{% static 'assets/js/index.js' %}"></script>
+
+    
+    <!-- Custom-Switcher JS -->
+    <script src="{% static 'assets/js/custom-switcher.min.js' %}"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+
+<script>
+    $(document).ready(function () {
+        $('tbody').on('click', '.delete', function () {
+            const href = $(this).attr('data-href');
+            $('#form_delete').attr('action', href);
+        });
+
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == "success" %}
+                    new AWN().success('{{ message|safe }}', { duration: { success: 2500 } });
+
+                {% elif message.tags == "error" %}
+                    new AWN().alert('{{ message|safe }}', { duration: { alert: 0 } });
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        $(document).ready(function() {
+             $('#myTable').DataTable();
+        });
+    });
+</script>
+
+</body>
+
+</html>
