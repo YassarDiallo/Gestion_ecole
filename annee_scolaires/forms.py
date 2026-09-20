@@ -19,7 +19,6 @@ class AnneeScolaireForm(forms.ModelForm):
         exclude=['slug','created_at','updated_at','edited_by']
 
         widgets={
-            'date_debut':forms.DateInput(attrs={'type':'date'}),
-            'date_fin':forms.DateInput(attrs={'type':'date'}),
-            'libele':forms.DateInput(attrs={'type':'year'}),
+            'date_debut':forms.TextInput(attrs={'type':'date'}),
+            'date_fin':forms.TextInput(attrs={'type':'date'}),
         }

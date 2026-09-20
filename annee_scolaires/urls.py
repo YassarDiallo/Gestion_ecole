@@ -3,8 +3,8 @@ from .views import *
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-    path('',login_required(Index.as_view()),name="anneescolairess_index"),
-    path('create/',login_required(Create.as_view()),name="anneescolairess_create"),
-    path('edit/<str:slug>/',login_required(Edit.as_view()),name="anneescolairess_edit"),
-    path('delete/<str:slug>/',login_required(Delete.as_view()),name="anneescolairess_delete"),
+    path('',login_required(Index.as_view()),name="anneescolaires_index"),
+    path('create/',login_required(Create.as_view()),name="anneescolaires_create"),
+    path('edit/<str:slug>/',login_required(Edit.as_view()),name="anneescolaires_edit"),
+    path('delete/<str:slug>/',login_required(Delete.as_view()),name="anneescolaires_delete"),
 ]

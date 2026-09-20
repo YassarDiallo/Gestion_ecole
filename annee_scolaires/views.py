@@ -15,8 +15,8 @@ class Create(PermissionRequiredMixin,CreateView):
     model=AnneeScolaire
     form_class=AnneeScolaireForm
     template_name="annee_scolaires/create.html"
-    success_url=reverse_lazy('anneescolairess_index')
-    permission_required="anneescolairess.add_anneescolaires"
+    success_url=reverse_lazy('anneescolaires_index')
+    permission_required="anneescolaires.add_anneescolaire"
     
     def form_valid(self,form):
         form.instance.author=self.request.user
@@ -28,8 +28,8 @@ class Create(PermissionRequiredMixin,CreateView):
 class Index(PermissionRequiredMixin,ListView):
     model=AnneeScolaire
     template_name="annee_scolaires/index.html"
-    context_object_name="anneescolairess"
-    permission_required="anneescolairess.view_anneescolaires"
+    context_object_name="anneescolaires"
+    permission_required="anneescolaires.view_anneescolaire"
 
     
     def get_context_data(self, **kwargs):
@@ -41,8 +41,8 @@ class Edit(PermissionRequiredMixin,UpdateView):
     model=AnneeScolaire
     form_class=AnneeScolaireForm
     template_name="annee_scolaires/edit.html"
-    success_url=reverse_lazy('anneescolairess_index')
-    permission_required="anneescolairess.change_anneescolaires"
+    success_url=reverse_lazy('anneescolaires_index')
+    permission_required="anneescolaires.change_anneescolaire"
     
     def get_object(self, queryset = None):
         return get_object_or_404(AnneeScolaire,slug=self.kwargs.get('slug'))
@@ -57,8 +57,8 @@ class Edit(PermissionRequiredMixin,UpdateView):
 class Delete(PermissionRequiredMixin,DeleteView):
     model=AnneeScolaire
     template_name="annee_scolaires/delete.html"
-    success_url=reverse_lazy('anneescolairess_index')
-    permission_required="anneescolairess.delete_anneescolaires"
+    success_url=reverse_lazy('anneescolaires_index')
+    permission_required="anneescolaires.delete_anneescolaire"
 
     def post(self,request,*args,**kwargs):
         messages.success(self.request,"Suppression éffectuée avec succès !")

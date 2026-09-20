@@ -12,7 +12,7 @@
             <!-- {% if perms.anneescolairess.add_anneescolaires   %} -->
                 <div class="col-md-1">
                     <div class="d-grid">
-                        <a href="{% url 'anneescolairess_create' %}" class="btn btn-success">+Nouveau</a>
+                        <a href="{% url 'anneescolaires_create' %}" class="btn btn-success">+Nouveau</a>
                     </div>
                 </div>
             <!-- {% endif %} -->
@@ -36,10 +36,10 @@
                     <td>{{c.date_debut}}</td>
                     <td>{{c.date_fin}}</td>
                     <td class="text-center">
-                        <button type="button" class="delete btn btn-danger me-4 btn-sm" data-href="{% url 'anneescolairess_delete' c.slug %}" data-bs-toggle="modal" data-bs-target="#delete">
+                        <button type="button" class="delete btn btn-danger me-4 btn-sm" data-href="{% url 'anneescolaires_delete' c.slug %}" data-bs-toggle="modal" data-bs-target="#delete">
                             <i class="fas fa-trash"></i>
                         </button>
-                        <a href="{% url 'anneescolairess_edit' c.slug %}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
+                        <a href="{% url 'anneescolaires_edit' c.slug %}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
                     </td>
                 </tr>
             {% endfor %}

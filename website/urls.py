@@ -20,5 +20,9 @@ urlpatterns = [
     path('clients/',include('clients.urls')),
     path('entreprises/',include('entreprises.urls')),
     path('annee_scolaires/',include('annee_scolaires.urls')),
+    path('enseignants/',include('enseignants.urls')),
+    path('matieres/',include('matieres.urls')),
+    path('periodes/',include('periodes.urls')),
+    path('classes/',include('classes.urls')),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block Content %}
+
+<div class="row mt-3">
+    <div class="card">
+        <div class="card-header">
+            <div class="col-md-11">
+                <h3>Liste des périodes trimestrielles </h3>
+            </div>
+            <!-- {% if perms.anneescolairess.add_anneescolaires   %} -->
+                <div class="col-md-1">
+                    <div class="d-grid">
+                        <a href="{% url 'periodes_create' %}" class="btn btn-success">+Nouveau</a>
+                    </div>
+                </div>
+            <!-- {% endif %} -->
+        </div>
+    <div class="card-body">
+      <table class="table table-bordered" id="myTable">
+        <thead>
+            <tr>
+                <th style="width: 5%;">N°</th>
+                <th>Année</th>
+                <th>Libelle</th>
+                <th>Date debut </th>
+                <th>Date fin </th>
+                <th style="width: 15%;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in periodes %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{c.annees}}</td>
+                    <td>{{c.libelle}}</td>
+                    <td>{{c.date_debut}}</td>
+                    <td>{{c.date_fin}}</td>
+                    <td class="text-center">
+                        <button type="button" class="delete btn btn-danger me-4 btn-sm" data-href="{% url 'periodes_delete' c.slug %}" data-bs-toggle="modal" data-bs-target="#delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <a href="{% url 'periodes_edit' c.slug %}" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+    </div>
+
+{% endblock Content %}

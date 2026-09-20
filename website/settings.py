@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'entreprises',
     'annee_scolaires',
-
+    'enseignants',
+    'matieres',
+    'periodes',
+    'classes',
 ]
 
 REST_FRAMEWORK={
