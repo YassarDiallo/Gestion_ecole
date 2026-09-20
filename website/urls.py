@@ -19,5 +19,6 @@ urlpatterns = [
     # --------------------------------------------
     path('clients/',include('clients.urls')),
     path('entreprises/',include('entreprises.urls')),
+    path('annee_scolaires/',include('annee_scolaires.urls')),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
