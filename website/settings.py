@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'import_export',
     'rest_framework',
     'entreprises',
-    'produits',
-    'factures',
+
 ]
 
 REST_FRAMEWORK={

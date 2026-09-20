@@ -57,8 +57,8 @@
                     </ul>
                 </li>
                            
-
-                <li class="slide">
+                {% if params.clients.view_client %}
+                     <li class="slide">
                     <a href="{% url 'clients_index' %}" class="side-menu__item">
                         <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="24" height="24"
                             viewBox="0 0 24 24">
@@ -68,18 +68,24 @@
                         <span style="width: 150px !important;">Clients</span>
                     </a>
                 </li>
+                {% endif %}
+                
+                {% if params.entreprises.view_entreprise %}
+                    <li class="slide">
+                        <a href="{% url 'entreprises_index' %}" class="side-menu__item">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="24" height="24"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm7 7v-5h4v5h-4zm2-15.586 6 6V15l.001 5H16v-5c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v5H6v-9.586l6-6z" />
+                            </svg>
+                            <span style="width: 150px !important;">Enteprises</span>
+                        </a>
+                     </li>
 
-                <li class="slide">
-                    <a href="{% url 'entreprises_index' %}" class="side-menu__item">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="24" height="24"
-                            viewBox="0 0 24 24">
-                            <path
-                                d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm7 7v-5h4v5h-4zm2-15.586 6 6V15l.001 5H16v-5c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v5H6v-9.586l6-6z" />
-                        </svg>
-                        <span style="width: 150px !important;">Enteprises</span>
-                    </a>
-                </li>
-                <li class="slide">
+                {% endif %}
+            
+                {% if params.produits.view_produit %}
+                     <li class="slide">
                     <a href="{% url 'produits_index' %}" class="side-menu__item">
                         <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="24" height="24"
                             viewBox="0 0 24 24">
@@ -89,7 +95,10 @@
                         <span style="width: 150px !important;">Produits</span>
                     </a>
                 </li>
-                <li class="slide">
+                {% endif %}
+                
+                {% if params.factures.view_facture %}
+                         <li class="slide">
                     <a href="{% url 'factures_index' %}" class="side-menu__item">
                         <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" width="24" height="24"
                             viewBox="0 0 24 24">
@@ -99,6 +108,8 @@
                         <span style="width: 150px !important;">Facture</span>
                     </a>
                 </li>
+                {% endif %}
+           
 
             </ul>
             <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24"

@@ -19,7 +19,5 @@ urlpatterns = [
     # --------------------------------------------
     path('clients/',include('clients.urls')),
     path('entreprises/',include('entreprises.urls')),
-    path('produits/',include('produits.urls')),
-    path('factures/',include('factures.urls')),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 

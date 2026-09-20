@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import PermissionRequiredMixin
-
 from utils.fonctions import get_include_template
 from .models import Client
 from .forms import ClientForm
@@ -25,8 +24,7 @@ from .serializer import ClientSerializers
 def client_list(request):
     clients=Client.objects.all()
     clientSerializer=ClientSerializers(clients,many=True)
-    return Response(clientSerializer.data)    
-
+    return Response(clientSerializer.data)  
 
 def print_client(request):
     context={}
