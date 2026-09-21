@@ -43,6 +43,14 @@ INSTALLED_APPS = [
     'matieres',
     'periodes',
     'classes',
+    'eleves',
+    'parents',
+    'enseignements',
+    'inscriptions',
+    'parent_eleves',
+    'notes',
+    'absences',
+    'paiements',
 ]
 
 REST_FRAMEWORK={

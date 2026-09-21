@@ -24,5 +24,13 @@ urlpatterns = [
     path('matieres/',include('matieres.urls')),
     path('periodes/',include('periodes.urls')),
     path('classes/',include('classes.urls')),
+    path('eleves/',include('eleves.urls')),
+    path('parents/',include('parents.urls')),
+    path('enseignements/',include('enseignements.urls')),
+    path('inscriptions/',include('inscriptions.urls')),
+    path('parent_eleves/',include('parent_eleves.urls')),
+    path('notes/',include('notes.urls')),
+    path('absences/',include('absences.urls')),
+    path('paiements/',include('paiements.urls')),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
